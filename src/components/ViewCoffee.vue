@@ -7,7 +7,7 @@
 
     <div class="list" v-if="listItems" >
       <main-card
-        v-for="item in listItems"
+        v-for="item in listsItemsComputed"
         :key="item.id"
         :available="item.available"
         :name="item.name"
@@ -23,11 +23,18 @@
 </template>
 
 <script setup>
-import { ref, onBeforeMount } from 'vue'
+import {ref, onBeforeMount, computed} from 'vue'
 import { useFetch } from '@/composable/useFetch'
 import MainCard from '@/components/MainCard.vue'
 
 const listItems = ref(null)
+const listsItemsComputed = computed(() => {
+  if (currentList.value === 'available') {
+    return listItems.value.filter((card) => card.available)
+  }
+
+  return listItems.value
+})
 const currentList = ref('all')
 const sortBy = (value) => {
   currentList.value = value
@@ -54,9 +61,10 @@ onBeforeMount(async () => {
 
 .list {
   margin-top: 50px;
+  padding: 2rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  row-gap: 40px;
+  gap: 20px;
 }
 </style>

@@ -1,5 +1,7 @@
 <template>
   <div class="card">
+    <span class="card-tag" v-if="props.popular">Popular</span>
+
     <img class="card-image" :src="props.image" :alt="props.name">
 
     <div class="card-info">
@@ -37,6 +39,19 @@ const props = defineProps({
   display: flex;
   flex-direction: column;
   gap: 10px;
+  position: relative;
+}
+
+.card-tag {
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  background: var(--yellow);
+  font-size: var(--size-small-text);
+  color: var(--background-color);
+  font-weight: 500;
+  padding: 2px 10px;
+  border-radius: 10px;
 }
 
 .card-image {
