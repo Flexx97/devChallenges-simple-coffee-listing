@@ -1,0 +1,35 @@
+@import 'base.css';
+
+body {
+    background-image: url("../images/bg-cafe.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+h1 {
+    font-size: 2rem;
+    text-align: center;
+}
+
+p {
+    text-align: center;
+    color: var(--gray);
+    font-size: var(--size-body);
+}
+
+button {
+    background: none;
+    border: none;
+    color: var(--font-color);
+    cursor: pointer;
+    font-family: "DM Sans";
+    font-weight: 600;
+    font-size: var(--size-body);
+}
+
+button:hover {
+    opacity: .9;
+}
+button:active {
+    opacity: .7;
+}
