@@ -9,7 +9,13 @@
   --yellow: #F6C768;
   --red: #ED735D;
 
-  --size-body: 1rem
+  --size-title: 2rem;
+  --size-body: 1rem;
+  --size-label: 0.875rem;
+  --size-small-text: 0.625rem;
+  --size-price-text: 0.75rem;
+
+  --radius: 10px
 }
 
 body {

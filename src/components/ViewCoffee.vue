@@ -5,20 +5,37 @@
       <button :class="[currentList === 'available' ? 'btn-active' : '']" @click="sortBy('available')">Available Now</button>
     </div>
 
-    <div class="list">
-
+    <div class="list" v-if="listItems" >
+      <main-card
+        v-for="item in listItems"
+        :key="item.id"
+        :available="item.available"
+        :name="item.name"
+        :image="item.image"
+        :price="item.price"
+        :popular="item.popular"
+        :rating="item.rating"
+        :votes="item.votes"
+      ></main-card>
     </div>
+
   </section>
 </template>
 
 <script setup>
-import {ref} from "vue";
+import { ref, onBeforeMount } from 'vue'
+import { useFetch } from '@/composable/useFetch'
+import MainCard from '@/components/MainCard.vue'
 
-// const coffeList = ref([])
+const listItems = ref(null)
 const currentList = ref('all')
 const sortBy = (value) => {
   currentList.value = value
 }
+
+onBeforeMount(async () => {
+  listItems.value = await useFetch('GET', 'https://raw.githubusercontent.com/devchallenges-io/web-project-ideas/main/front-end-projects/data/simple-coffee-listing-data.json')
+})
 </script>
 
 <style>
@@ -33,5 +50,13 @@ const sortBy = (value) => {
   background: var(--gray);
   padding: 10px;
   border-radius: 10px;
+}
+
+.list {
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  row-gap: 40px;
 }
 </style>

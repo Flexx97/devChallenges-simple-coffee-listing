@@ -16,9 +16,10 @@ import ViewCoffee from '@/components/ViewCoffee.vue'
 <style>
 .container {
   width: 70%;
+  max-width: 900px;
   margin: 5rem auto 0;
-  padding: 2rem;
-  border-radius: 8px;
+  padding: 2rem 0;
+  border-radius: var(--radius);
   background: var(--bacground-container);
 }
 
