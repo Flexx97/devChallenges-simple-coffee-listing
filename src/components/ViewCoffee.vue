@@ -23,7 +23,7 @@
 </template>
 
 <script setup>
-import {ref, onBeforeMount, computed} from 'vue'
+import { ref, onBeforeMount, computed } from 'vue'
 import { useFetch } from '@/composable/useFetch'
 import MainCard from '@/components/MainCard.vue'
 
