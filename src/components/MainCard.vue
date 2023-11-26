@@ -10,7 +10,8 @@
     </div>
 
     <div class="card-ratings">
-      <img :src="props.rating ? StarFillIcon : StarIcon" alt="star">
+      <img src="@/assets/images/star_fill.svg" alt="star" v-if="props.rating">
+      <img src="@/assets/images/star.svg" alt="" v-else>
       <span :class="[!props.rating ? 'card-ratings-none' : '']">{{ props.rating ?? 'No ratings' }}</span>
       <span class="card-ratings-votes" v-show="props.votes > 0">({{ props.votes }} votes)</span>
       <span class="card-settings-soldOut" v-if="!props.available">Sold out</span>
@@ -19,8 +20,6 @@
 </template>
 
 <script setup>
-import StarFillIcon from '@/assets/images/star_fill.svg'
-import StarIcon from '@/assets/images/star.svg'
 
 const props = defineProps({
   id: Number,
