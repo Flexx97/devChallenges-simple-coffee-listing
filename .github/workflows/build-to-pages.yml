@@ -27,7 +27,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
-    if: github.event_name == 'workflow_run' && github.event.workflow == 'Build on Main and Deploy to Gh-Pages'
 
     steps:
     - name: Checkout Repository
