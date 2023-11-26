@@ -41,4 +41,4 @@ jobs:
       run: npm install
 
     - name: Deploy to Gh-Pages
-      run: npm run build && git push origin HEAD:gh-pages
+      run: npm run build && git pull origin HEAD:gh-pages && git push origin HEAD:gh-pages
